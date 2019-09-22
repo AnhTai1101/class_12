@@ -13,7 +13,7 @@
             ob_clean();
             // ket thuc phien lam viec
             // kiem tra xem co file layout k
-            if(file_exists($layout)){
+            if(file_exists($this->layout)){
                 include $this->layout;
             }else{
                 echo $this->view;

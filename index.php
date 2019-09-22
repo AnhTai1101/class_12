@@ -4,4 +4,7 @@
     include "app/connection.php";
     include "app/controller.php";
     include "app/routing.php";
+    include "controllers/frontend/homeController.php";
+    $obj = new homeController;
+    $obj->index();
 ?>
