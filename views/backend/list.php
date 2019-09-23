@@ -21,7 +21,7 @@
   </style>
   <a href="index.php?area=backend&controller=logout"><i class="fa fa-envelope"></i></a></a> 
   <div class="container-fluid">
-    <h2>Tab Quản lý</h2>         
+    <h2 class="text-primary">Tab Quản lý</h2>         
     <table class="table table-striped">
       <thead>
         <tr>
@@ -42,6 +42,12 @@
           <?php endforeach; ?>
       </tbody>
     </table>
+			<ul class="pagination">
+				<li class="btn text-primary">Trang</li>
+				<?php for($i = 1; $i <= $numPage; $i++): ?>
+				<li><a class="btn btn-primary" href="index.php?area=backend&controller=home&p=<?php echo $i; ?>"><?php echo $i; ?></a></li>&nbsp;
+				<?php endfor; ?>
+			</ul>
   </div>
   <div class="container-fluid">
     <form method="post" action="index.php?area=backend&controller=home&action=go_name">

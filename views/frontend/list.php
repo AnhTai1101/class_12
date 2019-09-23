@@ -41,6 +41,12 @@
         <?php endforeach; ?>
     </tbody>
   </table>
+  <ul class="pagination">
+    <li class="btn text-primary">Trang</li>
+    <?php for($i = 1; $i <= $numPage; $i++): ?>
+    <li><a class="btn btn-primary" href="index.php?area=frontend&controller=home&p=<?php echo $i; ?>"><?php echo $i; ?></a></li>&nbsp;
+    <?php endfor; ?>
+  </ul>
 </div>
  
 </body>

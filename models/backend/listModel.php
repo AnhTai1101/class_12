@@ -5,7 +5,7 @@
             $query = $conn->prepare("select * from noptien");
             $query -> setFetchMode(PDO::FETCH_OBJ);
             $query -> execute();
-            $result = $query->fetchAll();
+            $result = $query->rowCount();
             return $result;
         }
         public function delete(){
@@ -35,5 +35,19 @@
 			//thuc thi truy van
 			$query->execute(array("name"=>$name));
         }
+        // lay record de truyen ra view
+        public function model_get($fromRecord,$recordPerPage){
+			//lay bien ket noi csdl
+			$conn = Connection::getInstance();			
+			//chuan bi cau truy van
+			$query = $conn->prepare("select * from noptien limit $fromRecord,$recordPerPage");
+			//chon che de duyet ban ghi
+			$query->setFetchMode(PDO::FETCH_OBJ);
+			//thuc hien truy van
+			$query->execute();
+			//duyet tat ca cac ban ghi nem ve mot bien
+			$result = $query->fetchAll();
+			return $result;
+		}
     }
 ?>
