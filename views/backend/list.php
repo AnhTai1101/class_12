@@ -59,7 +59,7 @@
     <h3 class="text-primary">- Nội dung chi tiêu năm 2019: </h3>
     <?php foreach($ghichu as $row): ?>
       <?php static $TongTieu; ?>
-      <h4>&nbsp;&nbsp;+ Lần <?php echo $row->id ;?>:&nbsp;Ngày&nbsp;<?php echo $row->date; ?><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row->content; ?>&nbsp;( <?php echo $row->money; ?>K )</h4>
+      <h4>&nbsp;&nbsp;+ Lần <?php echo $row->id ;?>:&nbsp;Ngày&nbsp;<?php echo date("d-m-Y", strtotime($row->date)); ?><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row->content; ?>&nbsp;( <?php echo $row->money; ?>K )</h4>
       <?php $TongTieu = $TongTieu + $row->money; ?>
     <?php endforeach; ?>
     <h3 class="text-primary">- Tổng tiêu: &nbsp; <?php echo $TongTieu; ?>K </h3>
