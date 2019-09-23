@@ -18,7 +18,8 @@
 			//----
 			//goi ham model_get() trong class userModel de lay du lieu
 			$data = $this->model_get($fromRecord,$recordPerPage);
-			$this->renderHTML("views/frontend/list.php", array("data"=>$data,"numPage"=>$numPage));
+			$ghichu = $this->list_content();
+			$this->renderHTML("views/frontend/list.php", array("data"=>$data,"numPage"=>$numPage,"ghichu"=>$ghichu));
 		}
 
     }

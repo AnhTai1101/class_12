@@ -49,5 +49,27 @@
 			$result = $query->fetchAll();
 			return $result;
 		}
+		public function list_content(){
+			//lay bien ket noi csdl
+			$conn = Connection::getInstance();			
+			//chuan bi cau truy van
+			$query = $conn->prepare("select * from ghichu");
+			//chon che de duyet ban ghi
+			$query->setFetchMode(PDO::FETCH_OBJ);
+			//thuc hien truy van
+			$query->execute();
+			//duyet tat ca cac ban ghi nem ve mot bien
+			$result = $query->fetchAll();
+			return $result;
+		}
+		public function Model_addContent(){
+			$content = isset($_POST['content']) ? $_POST['content'] : 0;
+            //lay bien ket noi csdl
+			$conn = Connection::getInstance();
+			//chuan bi cau truy van
+			$query = $conn->prepare("insert into ghichu set content=:content");
+			//thuc thi truy van
+			$query->execute(array("content"=>$content));
+		}
     }
 ?>

@@ -47,6 +47,10 @@
     <li><a class="btn btn-primary" href="index.php?area=frontend&controller=home&p=<?php echo $i; ?>"><?php echo $i; ?></a></li>&nbsp;
     <?php endfor; ?>
   </ul>
+  <h3 class="text-primary">- Nội dung chi tiêu năm 2019:</h3>
+    <?php foreach($ghichu as $row): ?>
+      <h4>&nbsp;&nbsp;+ Lần <?php echo $row->id ;?>:<?php echo $row->content; ?></h4>
+    <?php endforeach; ?>
 </div>
  
 </body>

@@ -47,9 +47,13 @@
 			$fromRecord = $p*$recordPerPage;			
 			//----
 			//goi ham model_get() trong class userModel de lay du lieu
-			$data = $this->model_get($fromRecord,$recordPerPage);
-			$this->renderHTML("views/backend/list.php", array("data"=>$data,"numPage"=>$numPage));
+            $data = $this->model_get($fromRecord,$recordPerPage);
+            $ghichu = $this->list_content();
+			$this->renderHTML("views/backend/list.php", array("data"=>$data,"numPage"=>$numPage,"ghichu"=>$ghichu));
 		}
-
+        public function add_content(){
+            $this->Model_addContent();
+            header("location:index.php?area=backend&controller=home");
+        }
     }
 ?>

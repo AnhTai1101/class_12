@@ -50,6 +50,20 @@
 			</ul>
   </div>
   <div class="container-fluid">
+    <h3 class="text-primary">- Nội dung chi tiêu năm 2019:</h3>
+    <?php foreach($ghichu as $row): ?>
+      <h4>&nbsp;&nbsp;+ Lần <?php echo $row->id ;?>:<?php echo $row->content; ?></h4>
+    <?php endforeach; ?>
+    <form method="post" action="index.php?area=backend&controller=home&action=add_content">
+    <div class="form-group">
+      <h3 class="text-primary">Form Add name</h3>
+      <label for="name">Nội dung chi tiêu</label>
+      <input type="text" class="form-control" id="name" name="content" placeholder="Ngày trước Nội dung sau">
+    </div>
+    <button type="submit" class="btn btn-default text-primary">Thêm</button>
+    </form>
+  </div>
+  <!-- <div class="container-fluid">
     <form method="post" action="index.php?area=backend&controller=home&action=go_name">
     <div class="form-group">
       <h3>Form Add name</h3>
@@ -58,7 +72,7 @@
     </div>
     <button type="submit" class="btn btn-default text-primary">Thêm</button>
     </form>
-  </div>
+  </div> -->
  
 </body>
 </html>
