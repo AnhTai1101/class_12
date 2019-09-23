@@ -28,6 +28,7 @@
             $this->add_name();
             $data = $this->list_money();
             $this->renderHTML("views/backend/list.php",array("data"=>$data));
+            header("location:index.php?area=backend&controller=home");
         }
 
     }

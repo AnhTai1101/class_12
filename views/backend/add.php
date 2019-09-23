@@ -11,38 +11,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-  <style>
-.fa-envelope{
-  font-size: 40px;
-  position: fixed;
-  right: 10px;
-  top: 10px;
-}
-  </style>
-  <a href="index.php?area=backend&controller=logout"><i class="fa fa-envelope"></i></a></a> 
-  <div class="container-fluid">
-    <h2>Tab Quản lý</h2>         
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th style="width: 10%;">STT</th>
-          <th>Họ Tên</th>
-          <th>Số Tiền</th>
-          <th style="width: 10%;">Trạng thái</th>
-        </tr>
-      </thead>
-      <tbody>
-          <?php foreach($data as $rows): ?>
-          <tr>
-          <td><?php echo $rows->id; ?></td>
-          <td><?php echo $rows->name; ?></td>
-          <td>200.000đ</td>
-          <td><a href="index.php?area=backend&controller=home&action=<?php echo $rows->trangthai==1?"delete":"add"; ?>_money&id=<?php echo $rows->id; ?>"><span class="text-<?php echo $rows->trangthai==1?"danger":"primary"; ?>"><?php echo $rows->trangthai==1?"Xóa":"Thêm"; ?></span></a></td>
-          </tr>
-          <?php endforeach; ?>
-      </tbody>
-    </table>
-  </div>
   <div class="container-fluid">
     <form method="post" action="index.php?area=backend&controller=home&action=go_name">
     <div class="form-group">
