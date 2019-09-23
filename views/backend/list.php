@@ -19,30 +19,40 @@
   top: 10px;
 }
   </style>
-<a href="index.php?area=backend&controller=logout"><i class="fa fa-envelope"></i></a></a> 
-<div class="container-fluid">
-  <h2>Tab Quản lý</h2>         
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th style="width: 10%;">STT</th>
-        <th>Họ Tên</th>
-        <th>Số Tiền</th>
-        <th style="width: 10%;">Trạng thái</th>
-      </tr>
-    </thead>
-    <tbody>
-        <?php foreach($data as $rows): ?>
+  <a href="index.php?area=backend&controller=logout"><i class="fa fa-envelope"></i></a></a> 
+  <div class="container-fluid">
+    <h2>Tab Quản lý</h2>         
+    <table class="table table-striped">
+      <thead>
         <tr>
-        <td><?php echo $rows->id; ?></td>
-        <td><?php echo $rows->name; ?></td>
-        <td>200.000đ</td>
-        <td><a href="index.php?area=backend&controller=home&action=<?php echo $rows->trangthai==1?"delete":"add"; ?>_money&id=<?php echo $rows->id; ?>"><span class="text-<?php echo $rows->trangthai==1?"danger":"primary"; ?>"><?php echo $rows->trangthai==1?"Xóa":"Thêm"; ?></span></a></td>
+          <th style="width: 10%;">STT</th>
+          <th>Họ Tên</th>
+          <th>Số Tiền</th>
+          <th style="width: 10%;">Trạng thái</th>
         </tr>
-        <?php endforeach; ?>
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody>
+          <?php foreach($data as $rows): ?>
+          <tr>
+          <td><?php echo $rows->id; ?></td>
+          <td><?php echo $rows->name; ?></td>
+          <td>200.000đ</td>
+          <td><a href="index.php?area=backend&controller=home&action=<?php echo $rows->trangthai==1?"delete":"add"; ?>_money&id=<?php echo $rows->id; ?>"><span class="text-<?php echo $rows->trangthai==1?"danger":"primary"; ?>"><?php echo $rows->trangthai==1?"Xóa":"Thêm"; ?></span></a></td>
+          </tr>
+          <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
+  <div class="container-fluid">
+    <form method="post" action="index.php?area=backend&controller=home&action=go_name">
+    <div class="form-group">
+      <h3>Form Add name</h3>
+      <label for="name">Tên</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên bạn học">
+    </div>
+    <button type="submit" class="btn btn-default">Thêm</button>
+    </form>
+  </div>
  
 </body>
 </html>

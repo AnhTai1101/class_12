@@ -26,5 +26,14 @@
 			//thuc thi truy van
 			$query->execute(array("id"=>$id));
         }
+        public function add_name(){
+            $name = isset($_POST['name']) ? $_POST['name'] : 0;
+            //lay bien ket noi csdl
+			$conn = Connection::getInstance();
+			//chuan bi cau truy van
+			$query = $conn->prepare("insert into noptien set name=:name, sdt=1, trangthai=0,facebook=0, tien=200");
+			//thuc thi truy van
+			$query->execute(array("name"=>$name));
+        }
     }
 ?>
