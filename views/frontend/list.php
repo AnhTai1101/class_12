@@ -40,6 +40,12 @@
         </tr>
         <?php endforeach; ?>
     </tbody>
+    <!-- them tong tien thu vao version1.1 -->
+    <tr>
+      <td>Tổng thu</td>
+      <td></td>
+      <td class="lead"><?php echo $money_input; ?>đ</td>
+    </tr>
   </table>
   <ul class="pagination">
     <li class="btn text-primary">Trang</li>
@@ -47,10 +53,13 @@
     <li><a class="btn btn-primary" href="index.php?area=frontend&controller=home&p=<?php echo $i; ?>"><?php echo $i; ?></a></li>&nbsp;
     <?php endfor; ?>
   </ul>
-  <h3 class="text-primary">- Nội dung chi tiêu năm 2019:</h3>
+    <h3 class="text-primary">- Nội dung chi tiêu năm 2019: </h3>
     <?php foreach($ghichu as $row): ?>
-      <h4>&nbsp;&nbsp;+ Lần <?php echo $row->id ;?>:<?php echo $row->content; ?></h4>
+      <?php static $TongTieu; ?>
+      <h4>&nbsp;&nbsp;+ Lần <?php echo $row->id ;?>:&nbsp;<?php echo $row->content; ?>&nbsp;( <?php echo $row->money; ?>K )</h4>
+      <?php $TongTieu = $TongTieu + $row->money; ?>
     <?php endforeach; ?>
+    <h3 class="text-primary">- Tổng tiêu: &nbsp; <?php echo $TongTieu; ?>K </h3>
 </div>
  
 </body>

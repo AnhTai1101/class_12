@@ -34,5 +34,17 @@
 			$result = $query->fetchAll();
 			return $result;
 		}
+		public function money_input(){
+            $conn = Connection::getInstance();
+            $query = $conn->prepare("select * from noptien where trangthai=1");
+            $query -> setFetchMode(PDO::FETCH_OBJ);
+            $query -> execute();
+			$result = $query->rowCount();
+			// tinh tong so tien
+			$d = $result*200000;
+			// chia cách cách hàng ngìn và triệu bằng dấu chậm.
+			$d = strrev(chop(chunk_split(strrev($d),3,"."),"."));
+            return $d;
+        }
     }
 ?>

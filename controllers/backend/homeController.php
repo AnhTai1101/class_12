@@ -49,7 +49,8 @@
 			//goi ham model_get() trong class userModel de lay du lieu
             $data = $this->model_get($fromRecord,$recordPerPage);
             $ghichu = $this->list_content();
-			$this->renderHTML("views/backend/list.php", array("data"=>$data,"numPage"=>$numPage,"ghichu"=>$ghichu));
+            $money_input = $this->money_input();
+			$this->renderHTML("views/backend/list.php", array("data"=>$data,"numPage"=>$numPage,"ghichu"=>$ghichu,"money_input"=>$money_input));
 		}
         public function add_content(){
             $this->Model_addContent();

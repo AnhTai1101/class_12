@@ -64,12 +64,27 @@
 		}
 		public function Model_addContent(){
 			$content = isset($_POST['content']) ? $_POST['content'] : 0;
+			$content = ucfirst($content);
+			$money = isset($_POST['money']) ? $_POST['money'] : 0;
+			$date = isset($_POST['date']) ? $_POST['date'] : 0;
             //lay bien ket noi csdl
 			$conn = Connection::getInstance();
 			//chuan bi cau truy van
-			$query = $conn->prepare("insert into ghichu set content=:content");
+			$query = $conn->prepare("insert into ghichu set content=:content , date=:date, money=:money");
 			//thuc thi truy van
-			$query->execute(array("content"=>$content));
+			$query->execute(array("content"=>$content,"money"=>$money,"date"=>$date));
 		}
+		public function money_input(){
+            $conn = Connection::getInstance();
+            $query = $conn->prepare("select * from noptien where trangthai=1");
+            $query -> setFetchMode(PDO::FETCH_OBJ);
+            $query -> execute();
+			$result = $query->rowCount();
+			// tinh tong so tien
+			$d = $result*200000;
+			// chia cách cách hàng ngìn và triệu bằng dấu chậm.
+			$d = strrev(chop(chunk_split(strrev($d),3,"."),"."));
+            return $d;
+        }
     }
 ?>
