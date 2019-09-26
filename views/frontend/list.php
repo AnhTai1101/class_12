@@ -12,6 +12,9 @@
 </head>
 <body>
 <style>
+  .container-fluid{
+    margin-bottom: 30px;
+  }
 .fa-home{
   font-size: 40px;
   position: fixed;
@@ -32,12 +35,14 @@
       </tr>
     </thead>
     <tbody>
-        <?php foreach($data as $rows): ?>
+        <?php foreach($total as $rows): ?>
+        <?php static $z=1; ?>
         <tr>
-        <td><?php echo $rows->id; ?></td>
+        <td><?php echo $z; ?></td>
         <td><?php echo $rows->name; ?></td>
         <td>200.000đ</td>
         </tr>
+        <?php $z++; ?>
         <?php endforeach; ?>
     </tbody>
     <!-- them tong tien thu vao version1.1 -->
@@ -47,19 +52,13 @@
       <td class="lead"><?php echo $money_input; ?>đ</td>
     </tr>
   </table>
-  <ul class="pagination">
-    <li class="btn text-primary">Trang</li>
-    <?php for($i = 1; $i <= $numPage; $i++): ?>
-    <li><a class="btn btn-primary" href="index.php?area=frontend&controller=home&p=<?php echo $i; ?>"><?php echo $i; ?></a></li>&nbsp;
-    <?php endfor; ?>
-  </ul>
     <h3 class="text-primary">- Nội dung chi tiêu năm 2019: </h3>
     <?php foreach($ghichu as $row): ?>
       <?php static $TongTieu; ?>
-      <h4>&nbsp;&nbsp;+ Lần <?php echo $row->id ;?>:&nbsp;Ngày&nbsp;<?php echo date("d-m-Y", strtotime($row->date)); ?><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row->content; ?>&nbsp;( <?php echo $row->money; ?>K )</h4>
+      <h4>&nbsp;&nbsp;+ Lần <?php echo $row->id ;?>:&nbsp;Ngày&nbsp;<?php echo date("d-m-Y", strtotime($row->date)); ?><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row->content; ?>&nbsp;( <?php echo $row->money; ?>k )</h4>
       <?php $TongTieu = $TongTieu + $row->money; ?>
     <?php endforeach; ?>
-    <h3 class="text-primary">- Tổng tiêu: &nbsp; <?php echo $TongTieu; ?>K </h3>
+    <h3 class="text-primary">- Tổng chi: &nbsp; <?php echo $money_output; ?>đ </h3>
 </div>
  
 </body>
