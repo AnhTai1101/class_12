@@ -75,6 +75,14 @@
 			$c= $c*1000;
 			$e = strrev(chop(chunk_split(strrev($c),3,"."),"."));
             return $e;
-        }
+		}
+		public function no_money(){
+			$conn = Connection::getInstance();
+            $query = $conn->prepare("select * from noptien where trangthai=0");
+            $query -> setFetchMode(PDO::FETCH_OBJ);
+			$query -> execute();
+			$result = $query->fetchAll();
+			return $result;
+		}
     }
 ?>

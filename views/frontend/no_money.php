@@ -25,7 +25,7 @@
 <div class="container-fluid">
 <a href="index.php?area=backend"><i class="fa fa-home"></i></a></a> 
 
-  <h2 class="text-primary">Danh sách các bạn đóng tiền đợt 2</h2>         
+  <h2 class="text-primary">Danh sách các bạn chưa đóng tiền quỹ năm 2019</h2>         
   <table class="table table-striped">
     <thead>
       <tr>
@@ -35,32 +35,17 @@
       </tr>
     </thead>
     <tbody>
-        <?php foreach($total as $rows): ?>
+        <?php foreach($no_money as $rows): ?>
         <?php static $z=1; ?>
         <tr>
         <td><?php echo $z; ?></td>
         <td><?php echo $rows->name; ?></td>
-        <td>200.000đ</td>
+        <td>0.đ</td>
         </tr>
         <?php $z++; ?>
         <?php endforeach; ?>
     </tbody>
-    <!-- them tong tien thu vao version1.1 -->
-    <tr>
-      <td>Tổng thu</td>
-      <td></td>
-      <td class="lead"><?php echo $money_input; ?>đ</td>
-    </tr>
-  </table>
-    <h3 class="text-primary">- Nội dung chi tiêu năm 2019: </h3>
-    <?php foreach($ghichu as $row): ?>
-      <?php static $TongTieu; ?>
-      <h4>&nbsp;&nbsp;+ Lần <?php echo $row->id ;?>:&nbsp;Ngày&nbsp;<?php echo date("d-m-Y", strtotime($row->date)); ?><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row->content; ?>&nbsp;( <?php echo $row->money; ?>k )</h4>
-      <?php $TongTieu = $TongTieu + $row->money; ?>
-    <?php endforeach; ?>
-    <h3 class="text-primary">- Tổng chi: &nbsp; <?php echo $money_output; ?>đ </h3>
 </div>
-<a href="index.php?area=frontend&controller=no"><span class="btn btn-primary">Danh sách các bạn chưa đóng tiền</span></a>
  
 </body>
 </html>
